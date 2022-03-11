@@ -1,0 +1,88 @@
+Pre-Game Basic Input Testing
+
+- Testing the player input when the player is first asked "Would you like to play Minesweeper?"
+- Player has to enter yes or no.
+
+	Input		Expected Output					Observed Output
+	
+	yes		*continue with the game*			*continue with the game*
+	no		*stop the game and display message*		*stop the game and display message*
+	yea		*ask again*					*ask again*
+	-1		*ask again*					*ask again*
+	5		*ask again*					*ask again*
+
+- Testing the player input when the player is first asked "Are you ready to play Minesweeper?"
+- Player has to enter yes or no.
+
+	Input		Expected Output					Observed Output
+	
+	yes		*continue with the game*			*continue with the game*
+	no		*stop the game and display message*		*stop the game and display message*
+	yea		*ask again*					*ask again*
+	-1		*ask again*					*ask again*
+	5		*ask again*					*ask again*
+
+- Testing the player input when the player is required to enter a difficulty level.
+- Player has to enter a level no. 1,2 or 3.
+
+	Input		Expected Output				Observed Output
+
+	1		*continue with level 1 difficulty*	*continue with level 1 difficulty*
+	2		*continue with level 2 difficulty*	*continue with level 2 difficulty*
+	3		*continue with level 3 difficulty*	*continue with level 3 difficulty*
+	0		*ask player again*			*ask player again*
+	*no input*	error					error
+	-8		*ask player again*			*ask player again*
+	4		*ask player again*			*ask player again*
+
+
+
+
+In-Game Input Testing
+
+- Testing the player input when they are asked to enter a row in their shot.
+- Player has to enter a row between 1 and 9 inclusive
+
+	Input		Expected Output				Observed Output
+
+	1		*continue, now ask column*		*continue, now ask column*
+	9		*continue, now ask column*		*continue, now ask column*
+	5		*continue, now ask column*		*continue, now ask column*
+	haha		error					error
+	-1		*ask to enter valid row*		*ask to enter a valid row*
+	0		*ask to enter a valid row*		*ask to enter a valid row*
+	*no input*	error					error
+
+- Testing the player input when they are asked to enter a column in their shot.
+- Player has to enter a column between 1 and 9 inclusive
+
+	Input		Expected Output					Observed Output
+
+	1		*continue, now ask row for next round*		*continue, now ask row for next round*
+	9		*continue, now ask row for next round*		*continue, now ask row for next round*
+	5		*continue, now ask row for next round*		*continue, now ask row for next round*
+	haha		error						error
+	-1		*ask to enter a valid column*			*ask to enter a valid column*
+	0		*ask to enter a valid column*			*ask to enter a valid column*
+	*no input*	error						error
+
+
+- Testing the player input if they try to enter the same row column combination again.
+- Player cannot enter the same row column combination again in that round. 
+- The test below will disregard the presence of mines (though, tests were taken multiple time to make sure that guesses did not land on mines).
+	
+	Shot1	Shot2	Shot3		Expected Output						Observed Output
+	4,3	4,3			*error for entering same combination, ask again*	*error for entering same combination, ask again*
+	5,3	5,4	5,4		*error for entering same combination, ask again*	*error for entering same combination, ask again*
+	1,2	3,6	4,4		*assuming did not land on mine, you won!*		*assuming did not land on mine, you won!*
+	0,1				*ask to enter a valid row*				*ask to enter a valid row*
+	4,5	7,8	4,5		*error for entering same combination, ask again*	*error for entering same combination, ask again*
+	1,3	3,9	3,9		*error for entering same combination, ask again*	*error for entering same combination, ask again*
+	1,9	2,8	3,1		*assuming did not land on mine, you won!*		*assuming did not land on mine, you won!*
+
+	
+
+
+
+
+
